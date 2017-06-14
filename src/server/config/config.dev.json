@@ -3,5 +3,5 @@
     "mongodb": {
       "db": "reach",
       "host": "mongodb://localhost/"
-    },
+    }
 }
