@@ -6,7 +6,6 @@ import { Link } from "react-router-dom"
 import OrderDishTable from "./OrderDishTable" 
 import PayDialog from "./PayDialog"
 import JoinOrder from "./JoinOrder"
-import SplitOrder from "./SplitOrder"
 
 @inject('orderStore')
 @observer
@@ -37,23 +36,21 @@ export default class OrderCard extends React.Component {
             <OrderDishTable orderId={this.props._id}/>
           </CardText>
           <CardActions>
-            <div>
-            <SplitOrder id={ this.props._id } />
-            <JoinOrder table={this.props.table} id={this.props._id}/>
-              { this.state.expandCard ? 
-                <IconButton name="expand_more" onClick={this.toggleExpand.bind(this)}/> :
-                <IconButton name="expand_less" onClick={this.toggleExpand.bind(this)}/>
-              }
+            <Link to={`/splitOrder/${this.props._id}`}> <Button colored ripple>Split</Button></Link>
+            <Link to={`/joinOrder/${this.props._id}`}> <Button colored>Join</Button></Link>
+            { this.state.expandCard ? 
+              <IconButton name="expand_more" onClick={this.toggleExpand.bind(this)}/> :
+              <IconButton name="expand_less" onClick={this.toggleExpand.bind(this)}/>
+            }
               
             <Link to={`/orderDetails/${this.props._id}`}><IconButton name="mode_edit" /></Link>
-            </div>
           </CardActions >
             {
               this.state.expandCard ?
               <CardText> <p>{this.props.notes}</p></CardText>: undefined
             }
           <CardMenu>
-            <PayDialog dishes={this.props.dishes} id={this.props._id}/>
+            <Link to={`/payOrder/${this.props._id}`}><IconButton name="credit_card" /></Link>
           </CardMenu>
         </Card>
       </div>

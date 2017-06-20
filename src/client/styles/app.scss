@@ -5,6 +5,9 @@
 @import './orderDetails';
 @import './settings';
 @import './dish';
+@import './join';
+@import './split';
+@import './pay';
 
 html {
   background: #eee;
@@ -44,6 +47,15 @@ html {
   .mdl-card{
     width: initial;
   }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+*, *::before, *::after {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
 }
 
 select {
