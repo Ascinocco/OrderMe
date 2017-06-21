@@ -41,25 +41,27 @@ const stores = {
 
 
 ReactDOM.render(
-  <Provider  { ...stores }>
-    <Router >
-      <Layout fixedHeader>
-        <Nav />
-        <Drawer />
+  <I18nextProvider i18n={ i18n }>
+    <Provider  { ...stores }>
+      <Router >
+        <Layout fixedHeader>
+          <Nav />
+          <Drawer />
 
-        <Content>
-          <Route exact path="/" component={ Orders }/>
-          <Route path="/orders" component={ Orders }/>
-          <Route path="/payOrder/:id?" component={ PayOrder }/>
-          <Route path="/splitOrder/:id?" component={ SplitOrder }/>
-          <Route path="/joinOrder/:id?" component={ JoinOrder }/>
-          <Route path="/dishes" component={ Dishes }/>
-          <Route path="/settings" component={ Settings }/>
-          <Route path="/orderDetails/:id?" component={ OrderDetails }/>
-          <Route path="/dishDetails/:id?" component={ DishDetails }/>
-          <Route path="/setting/dishType/:id?" component={ DishTypeSettings }/>
-        </Content>
-      </Layout>
-    </Router>
-  </Provider>,
+          <Content>
+            <Route exact path="/" component={ Orders }/>
+            <Route path="/orders" component={ Orders }/>
+            <Route path="/payOrder/:id?" component={ PayOrder }/>
+            <Route path="/splitOrder/:id?" component={ SplitOrder }/>
+            <Route path="/joinOrder/:id?" component={ JoinOrder }/>
+            <Route path="/dishes" component={ Dishes }/>
+            <Route path="/settings" component={ Settings }/>
+            <Route path="/orderDetails/:id?" component={ OrderDetails }/>
+            <Route path="/dishDetails/:id?" component={ DishDetails }/>
+            <Route path="/setting/dishType/:id?" component={ DishTypeSettings }/>
+          </Content>
+        </Layout>
+      </Router>
+    </Provider>
+  </I18nextProvider>,
   app);
