@@ -1,11 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Provider } from "mobx-react"
+import { Provider } from "mobx-react";
 import {
   HashRouter as Router,
   Route,
   Link
 } from 'react-router-dom';
+
+import { I18nextProvider, translate } from 'react-i18next';
+import i18n from './i18n';
+
 import { Layout, Content } from 'react-mdl';
 
 import Orders from "./pages/Orders";
